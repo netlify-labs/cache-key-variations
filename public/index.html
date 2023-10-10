@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cache-key variations on Netlify</title>
+        <link rel="stylesheet" href="/main.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Cache-key variations on Netlify</h1>
+
+            <p>Cache-key variations are a powerful new tool in your arsenal.
+            This entire page is served on the root URL with the help of
+            cached Netlify Edge Functions and Cache-key variations.</p>
+
+            <p><strong>This response in particular was not served from our
+                cache.</strong></p>
+
+            <p>It's seems that this is the first time you've visited this site.
+            We know this because we're setting a cookie on your browser (sorry),
+            and we're varying the content based on one of the keys of that cookie!</p>
+
+            <p>It also seems like you're the first person from <Country> to
+            visit our site! We know this because Netlify does geolocation based
+            off your IP address, and we're also varying based on geolocation!</p>
+
+            <p>How about we play a game?</p>
+
+            <p>How many kilometers deep do you think it is the Mariana Trench?</p>
+
+            <div class="purge_buttons">
+                <form action="/" method="get">
+                    <label for="guess">Guess:</label>
+                    <input type="number" id="guess" name="guess"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+            <p>Try reloading this page a couple of times and see how the
+            response eventually is served from cache directly!</p>
+        </div>
+    </body>
+</html>
