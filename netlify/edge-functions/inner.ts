@@ -54,7 +54,7 @@ export default async (request: Request, context: Context) => {
                 recent you're probably the first person in your country to see this page.</p></li>
 
                 <li><p>Your <strong>answer to the question at the end of this page</strong>. Your answer is submitted as query parameter which
-                we <strong>validate using another edge-function and use to vary this content.</strong></p></li>
+                we <strong>rewrite using an edge-function and vary this content on the rewritten query value.</strong></p></li>
             </ul>
 
             ${guessContent}
