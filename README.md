@@ -1,7 +1,7 @@
-# Cache-key variations on Netlify
+# Cache key variations on Netlify
 
 This is a demo of using `Netlify-Vary` on Netlify Edge, with an example of how
-to take advantage of Netlify's cache-key variations feature to customise
+to take advantage of Netlify's cache key variations feature to customise
 how your dynamic content is cached on Netlify's CDN.
 
 Visit [the demo site](https://cache-key-variations.netlify.app/) to see this in action.
@@ -13,7 +13,7 @@ on how to better cache and serve dynamic assets using Netlify’s Edge Cache wit
 Netlify Functions or external services proxied to using redirect rules, giving
 fine grained control over which parts of a request need to match the cached object.
 
-## How do cache-key variations work?
+## How do cache key variations work?
 
 `Netlify-Vary` takes a set of comma delimited instructions for what parts of the request to vary on:
 
@@ -25,11 +25,11 @@ fine grained control over which parts of a request need to match the cached obje
 
 These instructions, together with the request URL, will define the cache key which Netlify uses to uniquely identify a cached object in our CDN.
 
-Here’s an example of a Function that supports the product catalog for an e-commerce site, and will be cached on Netlify Edge. Its cache-key will vary depending on:
+Here’s an example of a Function that supports the product catalog for an e-commerce site, and will be cached on Netlify Edge. Its cache key will vary depending on:
 - where the client is located (so different countries can have different product offerings)
 - the `productType` requested on the incoming request URL query parameter (so
   other query parameters such as `_utm` or session identifiers for analytics
-  don't affect the cache hit-rate for this content)
+  don't affect the cache hit rate for this content)
 
 ```jsx
 import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
@@ -67,5 +67,5 @@ In this example, different cache objects are created for different matches to
 the instructions, and a single additional cache object is created for all
 non-matches. For example, the content from a request to `yoursite.com/catalog?productType=clothes`
 and a request to `yoursite.com/catalog` (no query parameter) will have separate
-cache-keys, but requests to `yoursite.com/catalog` and
-`yoursite.com/catalog?otherParam=something` will have the same cache-key.
+cache keys, but requests to `yoursite.com/catalog` and
+`yoursite.com/catalog?otherParam=something` will have the same cache key.
